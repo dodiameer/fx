@@ -1,0 +1,55 @@
+{
+  "name": "@dodiameer/fx",
+  "version": "0.0.0",
+  "description": "Helper functions for arrays and objects. All functions were written to be pure functions as a challenge.",
+  "main": "./dist/node/index.js",
+  "module": "./dist/browser/index.js",
+
+  "scripts": {
+    "test": "uvu -r esbuild-register tests",
+    "build": "rimraf dist && node ./esbuild.js",
+    "dev": "nodemon -w src --ext ts,js,json,mjs,cjs -x \"pnpm build && pnpm start\"",
+    "start": "node ./dist/node/index.js"
+  },
+  "author": "Mohammed Ali Agha <mtxshiftg@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/glob": "^7.1.4",
+    "@types/node": "^16.4.12",
+    "esbuild": "^0.12.18",
+    "glob": "^7.1.7",
+    "nodemon": "^2.0.12",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "esbuild-register": "^3.0.0",
+    "uvu": "^0.5.1"
+  },
+  "files": ["dist"],
+  "exports": {
+    ".": {
+      "import": "./dist/browser/index.js",
+      "require": "./dist/node/index.js"
+    },
+    "./": {
+      "import": "./dist/browser",
+      "require": "./dist/node"
+    }
+  },
+  "keywords": [
+    "node",
+    "typescript",
+    "esbuild",
+    "utility",
+    "helper",
+    "pure",
+    "function",
+    "array",
+    "object",
+    "fx",
+    "fp",
+    "functional",
+    "function-programming"
+  ]
+}
