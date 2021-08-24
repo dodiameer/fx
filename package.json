@@ -1,6 +1,6 @@
 {
   "name": "@dodiameer/fx",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Helper functions for arrays and objects. All functions were written to be pure functions as a challenge.",
   "repository": {
     "type": "git",
