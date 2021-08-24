@@ -8,12 +8,14 @@
   },
   "main": "./dist/node/index.js",
   "module": "./dist/browser/index.js",
+  "types": "./dist/types/index.d.ts",
   "scripts": {
     "test": "uvu -r esbuild-register tests",
     "build": "rimraf dist && node ./esbuild.js",
     "dev": "nodemon -w src --ext ts,js,json,mjs,cjs -x \"pnpm build && pnpm start\"",
     "start": "node ./dist/node/index.js",
-    "prepublishOnly": "pnpm build",
+    "types": "tsc --declaration --emitDeclarationOnly --outDir dist/types src/index.ts",
+    "prepublishOnly": "pnpm build && pnpm types",
     "test:watch": "nodemon -w src -w test -e ts,js,json,mjs,cjs -x \"pnpm test\""
   },
   "author": "Mohammed Ali Agha <mtxshiftg@gmail.com>",
