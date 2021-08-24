@@ -9,6 +9,26 @@
   "main": "./dist/node/index.js",
   "module": "./dist/browser/index.js",
   "types": "./dist/types/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "./dist/types/index.d.ts": [
+        "./dist/types/index.d.ts"
+      ],
+      "*": [
+        "dist/types/*"
+      ]
+    }
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/browser/index.js",
+      "require": "./dist/node/index.js"
+    },
+    "./*": {
+      "import": "./dist/browser/*.js",
+      "require": "./dist/node/*.js"
+    }
+  },
   "scripts": {
     "test": "uvu -r esbuild-register tests",
     "build": "rimraf dist && node ./esbuild.js",
@@ -35,16 +55,6 @@
   "files": [
     "dist"
   ],
-  "exports": {
-    ".": {
-      "import": "./dist/browser/index.js",
-      "require": "./dist/node/index.js"
-    },
-    "./": {
-      "import": "./dist/browser",
-      "require": "./dist/node"
-    }
-  },
   "keywords": [
     "node",
     "typescript",
